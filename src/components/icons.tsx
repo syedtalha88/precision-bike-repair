@@ -43,3 +43,32 @@ export const Star = (p: SVGProps<SVGSVGElement>) => (
     <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/>
   </svg>
 );
+
+export const Mail = (p: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="m2 7 10 7 10-7"/>
+  </svg>
+);
+
+export const Bike = (p: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <circle cx="5.5" cy="17.5" r="3.5"/>
+    <circle cx="18.5" cy="17.5" r="3.5"/>
+    <path d="M15 6h3l2 5-3.5 4.5"/>
+    <path d="M9 17.5 12 9h3.5l-3 8.5"/>
+    <path d="M6 9h6"/>
+  </svg>
+);
+
+export const Menu = (p: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" {...p}>
+    <path d="M3 6h18M3 12h18M3 18h18"/>
+  </svg>
+);
+
+export const X = (p: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" {...p}>
+    <path d="M6 6l12 12M18 6 6 18"/>
+  </svg>
+);

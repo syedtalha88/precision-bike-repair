@@ -1,0 +1,9 @@
+export const BRAND = "A2Z Bike Services";
+export const PHONE_DISPLAY = "+91 95536 09372";
+export const PHONE_RAW = "919553609372";
+export const PHONE = "tel:+919553609372";
+export const WHATSAPP =
+  "https://wa.me/919553609372?text=Hi%20A2Z%20Bike%20Services%2C%20I%20need%20bike%20service%20in%20Hyderabad";
+export const EMAIL = "info@a2zbikeservices.com";
+export const EMAIL_LINK = "mailto:info@a2zbikeservices.com";
+export const HOURS = "Mon – Sun · 7 AM – 11 PM (All-day service)";
