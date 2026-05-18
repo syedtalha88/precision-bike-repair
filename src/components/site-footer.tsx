@@ -8,8 +8,8 @@ export function SiteFooter() {
     <footer className="bg-[var(--graphite)] text-white pt-14 pb-24 md:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <div className="bg-white inline-block p-2 clip-bevel-sm mb-4">
-            <img src={logo} alt={BRAND} width={160} height={48} className="h-10 w-auto" />
+          <div className="bg-white inline-block p-3 clip-bevel-sm mb-4">
+            <img src={logo} alt={BRAND} width={240} height={72} className="h-14 w-auto" />
           </div>
           <p className="text-sm text-white/70">
             Hyderabad's most trusted doorstep bike repair and service team. Open all day, all week.
