@@ -464,15 +464,24 @@ function Pricing() {
     {
       n: "Basic Service",
       p: "599",
+      hidden: false,
       tag: "Periodic check-up",
       f: ["Engine oil top-up", "Chain lube & cleaning", "Air filter cleaning", "Brake adjustment", "General inspection"],
     },
     {
       n: "Full Service",
       p: "899",
+      hidden: false,
       tag: "Most Popular",
       pop: true,
       f: ["Engine oil change (genuine)", "Chain & sprocket service", "Brake & clutch tuning", "Spark plug check", "Wash & polish", "25-point safety check"],
+    },
+    {
+      n: "Doorstep + Pickup",
+      p: "???",
+      hidden: true,
+      tag: "Zero-effort service",
+      f: ["Free pickup from your location", "Full service at workshop", "Genuine parts only", "25-point quality check", "Free drop back home", "Premium care, top-to-bottom"],
     },
   ];
   return (
@@ -490,7 +499,7 @@ function Pricing() {
           </div>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {plans.map((pl, i) => (
             <Reveal key={i} delay={i * 80}>
               <div className={`mech-card p-7 clip-bevel relative h-full ${pl.pop ? "border-[var(--orange)] border-[2.5px] shadow-[6px_6px_0_var(--graphite)]" : ""}`}>
@@ -502,8 +511,21 @@ function Pricing() {
                 <div className="text-xs uppercase tracking-widest text-[var(--steel)] font-bold">{pl.tag}</div>
                 <h3 className="font-display font-extrabold text-2xl mt-2 text-[var(--graphite)]">{pl.n}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-display font-black text-5xl text-[var(--graphite)]">₹{pl.p}</span>
-                  <span className="text-sm text-[var(--steel)]">/ onwards</span>
+                  {pl.hidden ? (
+                    <div className="flex flex-col">
+                      <span className="font-display font-black text-3xl md:text-4xl text-[var(--graphite)] tracking-tight">
+                        Custom Quote
+                      </span>
+                      <span className="text-xs uppercase tracking-widest text-[var(--orange)] font-bold mt-1">
+                        Call to unlock price 🔒
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <span className="font-display font-black text-5xl text-[var(--graphite)]">₹{pl.p}</span>
+                      <span className="text-sm text-[var(--steel)]">/ onwards</span>
+                    </>
+                  )}
                 </div>
                 <ul className="mt-6 space-y-2.5">
                   {pl.f.map((it, k) => (
@@ -512,9 +534,15 @@ function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP} className={`btn-mech mt-7 w-full ${pl.pop ? "" : "btn-mech-outline"}`}>
-                  <WhatsApp className="w-4 h-4" /> Book Now
-                </a>
+                {pl.hidden ? (
+                  <a href={PHONE} className="btn-mech mt-7 w-full btn-mech-navy">
+                    <Phone className="w-4 h-4" /> Call for Quote
+                  </a>
+                ) : (
+                  <a href={WHATSAPP} className={`btn-mech mt-7 w-full ${pl.pop ? "" : "btn-mech-outline"}`}>
+                    <WhatsApp className="w-4 h-4" /> Book Now
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}
