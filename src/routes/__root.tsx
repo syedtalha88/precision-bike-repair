@@ -7,11 +7,13 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 import appCss from "../styles.css?url";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { StickyMobileBar } from "@/components/sticky-bar";
+import { GA_MEASUREMENT_ID, ADS_CONVERSION_ID, installClickTrackers } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -82,7 +84,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -91,10 +97,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const gtagId = ADS_CONVERSION_ID || GA_MEASUREMENT_ID;
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        {gtagId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+${ADS_CONVERSION_ID ? `gtag('config', '${ADS_CONVERSION_ID}');` : ""}
+${GA_MEASUREMENT_ID ? `gtag('config', '${GA_MEASUREMENT_ID}');` : ""}`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         {children}
@@ -106,6 +127,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => { installClickTrackers(); }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
