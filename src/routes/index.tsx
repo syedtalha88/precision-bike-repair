@@ -169,9 +169,9 @@ function TrustBadges() {
 /* ------------------------------- Services ------------------------------ */
 function Services() {
   const services = [
-    { t: "General Bike Service", d: "Complete check-up, oil change, brake & chain tuning. Bike feels brand new.", price: "₹799" },
-    { t: "Doorstep Bike Service", d: "Our mechanic comes to your home or office. No travel. No waiting.", price: "₹299" },
-    { t: "Brake & Clutch Work", d: "Spongy brakes? Slipping clutch? Safe, precise repairs with genuine parts.", price: "₹399" },
+    { t: "General Bike Service", d: "Complete check-up, oil change, brake & chain tuning. Bike feels brand new.", price: "from ₹799" },
+    { t: "Doorstep Bike Service", d: "Our mechanic comes to your home or office. No travel. No waiting.", price: "from ₹299" },
+    { t: "Brake & Clutch Work", d: "Spongy brakes? Slipping clutch? Safe, precise repairs with genuine parts.", price: "from ₹399" },
     { t: "Engine Repair & Overhaul", d: "From minor noises to full overhauls. Done by certified engine specialists.", price: "from ₹1,499" },
     { t: "Electrical & Battery", d: "Battery, wiring, self-start, headlamp, indicators — fixed on the spot.", price: "from ₹399" },
     { t: "Emergency Breakdown", d: "Stuck on the road? Our rapid-response team reaches you in 30 mins.", price: "Call now" },
@@ -427,7 +427,7 @@ function Brands() {
   const brands = [
     "Hero", "Honda", "Yamaha", "Royal Enfield", "Bajaj", "TVS", "KTM", "Suzuki",
     "Jawa", "Kawasaki", "Mahindra", "BMW", "Triumph", "Harley-Davidson", "Ducati",
-    "Husqvarna", "Aprilia", "Vespa", "Ola Electric", "Ather", "Bajaj Chetak", "TVS iQube", "Revolt", "Ampere",
+    "Husqvarna", "Aprilia", "Vespa",
   ];
   return (
     <section className="py-20 bg-[oklch(0.98_0.005_250)]">
@@ -439,7 +439,7 @@ function Brands() {
               Every major brand. <span className="text-[var(--orange)]">Every model.</span>
             </h2>
             <p className="mt-3 text-[var(--steel)] max-w-2xl mx-auto">
-              Petrol, electric, classic or premium — if it rides on two wheels, we service it.
+              From daily commuters to premium tourers — if it rides on two wheels (petrol), we service it.
             </p>
           </div>
         </Reveal>
