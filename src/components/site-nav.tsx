@@ -15,7 +15,7 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 py-1" onClick={() => setOpen(false)}>
           <img src={logo} alt="A2Z Bike Services" width={240} height={72} className="h-14 sm:h-16 w-auto" />
         </Link>
