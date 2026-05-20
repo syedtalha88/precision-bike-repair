@@ -59,7 +59,8 @@ const SERVICES = [
   },
 ];
 
-function ServicesPage() {
+export default function ServicesPage() {
+  useSeo(SEO_META);
   return (
     <>
       <section className="relative bg-white py-16 md:py-20 overflow-hidden">

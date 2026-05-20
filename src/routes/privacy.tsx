@@ -9,7 +9,8 @@ const SEO_META = [
   { name: "robots", content: "index, follow" },
 ];
 
-function PrivacyPage() {
+export default function PrivacyPage() {
+  useSeo(SEO_META);
   const sections: { h: string; b: React.ReactNode }[] = [
     {
       h: "1. Who We Are",
