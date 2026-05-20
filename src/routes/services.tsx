@@ -1,23 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Gear, Wrench, Bolt, Phone, WhatsApp, Check, Bike } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { PHONE, WHATSAPP } from "@/lib/site";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/services")({
-  component: ServicesPage,
-  head: () => ({
-    meta: [
-      { title: "Our Services — A2Z Bike Services Hyderabad" },
-      {
-        name: "description",
-        content:
-          "Full list of bike services in Hyderabad — general service, doorstep service, brake & clutch, engine, electrical, emergency roadside help.",
-      },
-      { property: "og:title", content: "Bike Services in Hyderabad — A2Z Bike Services" },
-      { property: "og:description", content: "General service, doorstep, brake & clutch, engine, electrical and emergency roadside help." },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "Our Services — A2Z Bike Services Hyderabad" },
+  {
+    name: "description",
+    content:
+      "Full list of bike services in Hyderabad — general service, doorstep service, brake & clutch, engine, electrical, emergency roadside help.",
+  },
+  { property: "og:title", content: "Bike Services in Hyderabad — A2Z Bike Services" },
+  { property: "og:description", content: "General service, doorstep, brake & clutch, engine, electrical and emergency roadside help." },
+];
 
 const SERVICES = [
   {
@@ -64,7 +59,8 @@ const SERVICES = [
   },
 ];
 
-function ServicesPage() {
+export default function ServicesPage() {
+  useSeo(SEO_META);
   return (
     <>
       <section className="relative bg-white py-16 md:py-20 overflow-hidden">

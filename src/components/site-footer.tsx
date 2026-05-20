@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Phone, WhatsApp, Mail } from "@/components/icons";
 import { PHONE, WHATSAPP, PHONE_DISPLAY, EMAIL, EMAIL_LINK, BRAND } from "@/lib/site";

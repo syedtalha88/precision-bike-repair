@@ -1,19 +1,16 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/reveal";
 import { BRAND, EMAIL, EMAIL_LINK, PHONE_DISPLAY } from "@/lib/site";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/privacy")({
-  component: PrivacyPage,
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — A2Z Bike Services" },
-      { name: "description", content: "How A2Z Bike Services collects, uses and protects your personal information." },
-      { name: "robots", content: "index, follow" },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "Privacy Policy — A2Z Bike Services" },
+  { name: "description", content: "How A2Z Bike Services collects, uses and protects your personal information." },
+  { name: "robots", content: "index, follow" },
+];
 
-function PrivacyPage() {
+export default function PrivacyPage() {
+  useSeo(SEO_META);
   const sections: { h: string; b: React.ReactNode }[] = [
     {
       h: "1. Who We Are",

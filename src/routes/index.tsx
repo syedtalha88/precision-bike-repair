@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-mechanic.jpg";
 import emergencyImg from "@/assets/emergency.jpg";
 import mapImg from "@/assets/coverage-map.jpg";
@@ -7,20 +7,16 @@ import { Gear, Wrench, Bolt, Phone, WhatsApp, Check, Star, Bike } from "@/compon
 import { Reveal } from "@/components/reveal";
 import { LeadForm } from "@/components/lead-form";
 import { PHONE, WHATSAPP } from "@/lib/site";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/")({
-  component: Index,
-  head: () => ({
-    meta: [
-      { title: "A2Z Bike Services — Doorstep Bike Repair Hyderabad | Call 95536 09372" },
-      {
-        name: "description",
-        content:
-          "A2Z Bike Services: doorstep bike repair, emergency roadside help & general service across Hyderabad. All brands. Honest pricing from ₹299. Call 95536 09372.",
-      },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "A2Z Bike Services — Doorstep Bike Repair Hyderabad | Call 95536 09372" },
+  {
+    name: "description",
+    content:
+      "A2Z Bike Services: doorstep bike repair, emergency roadside help & general service across Hyderabad. All brands. Honest pricing from ₹299. Call 95536 09372.",
+  },
+];
 
 /* -------------------------------- Hero --------------------------------- */
 function Hero() {
@@ -738,7 +734,8 @@ function FinalCTA() {
 }
 
 /* ------------------------------- PAGE ---------------------------------- */
-function Index() {
+export default function Index() {
+  useSeo(SEO_META);
   // suppress lint: Link imported for forward links inside sections later
   void Link;
   return (
