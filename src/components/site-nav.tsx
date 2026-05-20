@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
 import { Phone, WhatsApp, Menu, X } from "@/components/icons";
@@ -21,15 +21,16 @@ export function SiteNav() {
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[var(--graphite)]">
           {links.map((l) => (
-            <Link
+            <NavLink
               key={l.to}
               to={l.to}
-              activeProps={{ className: "text-[var(--orange)]" }}
-              activeOptions={{ exact: true }}
-              className="hover:text-[var(--orange)] transition-colors"
+              end
+              className={({ isActive }) =>
+                `${isActive ? "text-[var(--orange)]" : ""} hover:text-[var(--orange)] transition-colors`
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
@@ -52,15 +53,17 @@ export function SiteNav() {
         <div className="lg:hidden border-t border-border bg-white">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1">
             {links.map((l) => (
-              <Link
+              <NavLink
                 key={l.to}
                 to={l.to}
+                end
                 onClick={() => setOpen(false)}
-                activeProps={{ className: "bg-[oklch(0.97_0.02_50)] text-[var(--orange)]" }}
-                className="py-2.5 px-3 rounded-md text-sm font-semibold text-[var(--graphite)]"
+                className={({ isActive }) =>
+                  `py-2.5 px-3 rounded-md text-sm font-semibold text-[var(--graphite)] ${isActive ? "bg-[oklch(0.97_0.02_50)] text-[var(--orange)]" : ""}`
+                }
               >
                 {l.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>
