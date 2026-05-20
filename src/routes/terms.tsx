@@ -1,19 +1,16 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Reveal } from "@/components/reveal";
 import { BRAND, EMAIL, EMAIL_LINK, PHONE_DISPLAY } from "@/lib/site";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/terms")({
-  component: TermsPage,
-  head: () => ({
-    meta: [
-      { title: "Terms of Service — A2Z Bike Services" },
-      { name: "description", content: "Terms governing services provided by A2Z Bike Services, Hyderabad." },
-      { name: "robots", content: "index, follow" },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "Terms of Service — A2Z Bike Services" },
+  { name: "description", content: "Terms governing services provided by A2Z Bike Services, Hyderabad." },
+  { name: "robots", content: "index, follow" },
+];
 
-function TermsPage() {
+export default function TermsPage() {
+  useSeo(SEO_META);
   const sections: { h: string; b: React.ReactNode }[] = [
     {
       h: "1. Acceptance of Terms",

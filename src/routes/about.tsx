@@ -1,26 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Gear, Wrench, Bolt, Phone, WhatsApp, Check, Star } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { PHONE, WHATSAPP, BRAND } from "@/lib/site";
 import heroImg from "@/assets/hero-mechanic.jpg";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/about")({
-  component: AboutPage,
-  head: () => ({
-    meta: [
-      { title: "About A2Z Bike Services — Hyderabad's Trusted Bike Mechanics" },
-      {
-        name: "description",
-        content:
-          "Meet A2Z Bike Services — a Hyderabad-grown bike repair team built on honest pricing, genuine parts and same-day doorstep service.",
-      },
-      { property: "og:title", content: "About A2Z Bike Services" },
-      { property: "og:description", content: "Hyderabad-grown bike repair team built on honest pricing and doorstep convenience." },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "About A2Z Bike Services — Hyderabad's Trusted Bike Mechanics" },
+  {
+    name: "description",
+    content:
+      "Meet A2Z Bike Services — a Hyderabad-grown bike repair team built on honest pricing, genuine parts and same-day doorstep service.",
+  },
+  { property: "og:title", content: "About A2Z Bike Services" },
+  { property: "og:description", content: "Hyderabad-grown bike repair team built on honest pricing and doorstep convenience." },
+];
 
-function AboutPage() {
+export default function AboutPage() {
+  useSeo(SEO_META);
   return (
     <>
       {/* HERO */}

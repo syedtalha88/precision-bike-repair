@@ -1,26 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Gear, Phone, WhatsApp, Mail, Check } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { LeadForm } from "@/components/lead-form";
 import { PHONE, WHATSAPP, EMAIL, EMAIL_LINK, PHONE_DISPLAY } from "@/lib/site";
+import { useSeo } from "@/lib/seo";
 
-export const Route = createFileRoute("/contact")({
-  component: ContactPage,
-  head: () => ({
-    meta: [
-      { title: "Contact A2Z Bike Services — Hyderabad | Call 95536 09372" },
-      {
-        name: "description",
-        content:
-          "Get in touch with A2Z Bike Services. Call, WhatsApp or email — we respond in minutes. Doorstep bike service across Hyderabad.",
-      },
-      { property: "og:title", content: "Contact A2Z Bike Services" },
-      { property: "og:description", content: "Call, WhatsApp or email A2Z Bike Services. Doorstep bike repair across Hyderabad." },
-    ],
-  }),
-});
+const SEO_META = [
+  { title: "Contact A2Z Bike Services — Hyderabad | Call 95536 09372" },
+  {
+    name: "description",
+    content:
+      "Get in touch with A2Z Bike Services. Call, WhatsApp or email — we respond in minutes. Doorstep bike service across Hyderabad.",
+  },
+  { property: "og:title", content: "Contact A2Z Bike Services" },
+  { property: "og:description", content: "Call, WhatsApp or email A2Z Bike Services. Doorstep bike repair across Hyderabad." },
+];
 
-function ContactPage() {
+export default function ContactPage() {
+  useSeo(SEO_META);
   const channels = [
     { icon: Phone, label: "Call Us", value: PHONE_DISPLAY, href: PHONE, sub: "Fastest way to book", accent: "var(--orange)" },
     { icon: WhatsApp, label: "WhatsApp", value: "Chat instantly", href: WHATSAPP, sub: "Send photos of your bike", accent: "#25D366" },
